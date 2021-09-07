@@ -1,21 +1,17 @@
-import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
+import greenfoot.*; 
 
 /**
- * Write a description of class MyWorld here.
+ * Main Game Class
  * 
- * @author (your name) 
- * @version (a version number or a date)
+ * @Asaad Al-Barwani
+ * @Ver 1.0
  */
 public class Game extends World
 {
-
-    /**
-     * Constructor for objects of class MyWorld.
-     * 
-     */
     public Game()
     {    
-        // Create a new world with 600x400 cells with a cell size of 1x1 pixels.
         super(900, 600, 1); 
+        Player p1 = new Player();
+        this.addObject(p1, 100, 300);
     }
 }
