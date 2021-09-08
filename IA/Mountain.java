@@ -14,6 +14,7 @@ public class Mountain extends Actor
      */
     public void act()
     {
-        // Add your action code here.
+        // https://www.youtube.com/watch?v=h8hZV2up2wQ
+        //use that to generate the curve, add platforms on the vertexes, increase height and speed every 4 points 
     }
 }

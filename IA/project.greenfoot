@@ -3,6 +3,7 @@ class.AirTank.image=balloon1.png
 class.Food.image=bread.png
 class.Game.image=Snow\ background.gif
 class.Mountain.image=lighthouse.png
+class.Platform.image=d7300adb552de6e.png
 class.Player.image=person.png
 dependency1.from=Game
 dependency1.to=Player
