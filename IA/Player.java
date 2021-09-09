@@ -1,11 +1,4 @@
-import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
-
-/**
- * Write a description of class Player here.
- * 
- * @author (your name) 
- * @version (a version number or a date)
- */
+import greenfoot.*;  
 
 public class Player extends Actor
 {
@@ -14,20 +7,21 @@ public class Player extends Actor
     private int speed = 5;
     private int accel = 1;
     private int velocity = 0;
+    private boolean airjump = false;
     private int gravity = 5;
     public int score = 0;
+    public static boolean alive = true;
     public int direction = 1;
-    /**
-     * Act - do whatever the Player wants to do. This method is called whenever
-     * the 'Act' or 'Run' button gets pressed in the environment.
-     */
+
     public void act()
     {
-        //Basic Player Movement provided by danpost
+        //Player Jump + Gravity provided by danpost
         checkInput();
         checkFall();
+        checkPickup();
     }
-    public void checkInput(){
+    public void checkInput()
+    {
         if(Greenfoot.isKeyDown("left")){
             direction = 1;
             Left();
@@ -40,13 +34,16 @@ public class Player extends Actor
             jump();
         }
     }
-    public void Right(){
+    public void Right()
+    {
         setLocation(getX()+speed, getY());
     }
-    public void Left(){
+    public void Left()
+    {
         setLocation(getX()-speed, getY());
     }
-    public boolean isOnFloor(){
+    public boolean isOnFloor()
+    {
         int spriteHeight = getImage().getHeight();
         int yDistance = (int)(spriteHeight/2) + 5;
         Actor ground = getOneObjectAtOffset(0, getImage().getHeight()/2, Platform.class);
@@ -61,7 +58,8 @@ public class Player extends Actor
             return true;
         }
     }
-    public void applyGravity(Actor ground){
+    public void applyGravity(Actor ground)
+    {
         int groundHeight = ground.getImage().getHeight();
         int newY = ground.getY() - (groundHeight + getImage().getHeight())/2;
         setLocation(getX(), newY);
@@ -81,10 +79,13 @@ public class Player extends Actor
 
     public void jump()
     {
-        velocity = velocity - jumpHeight;
+        if(!airjump)velocity = velocity - jumpHeight;
+        else{
+          velocity = velocity - 20;
+          airjump = false;
+        }
         jumping = true;
         fall();
-        
     }
     public void fall()
     {
@@ -94,5 +95,16 @@ public class Player extends Actor
             velocity = velocity + accel;
         }
         jumping = true;
+    }
+    public void checkPickup()
+    {
+        if (isTouching(AirTank.class)){
+            airjump = true;
+            removeTouching(AirTank.class);
+        }
+    }
+    public void powerQ()
+    {
+        //
     }
 }

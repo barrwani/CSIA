@@ -1,9 +1,11 @@
 #BlueJ class context
 comment0.target=Player
-comment0.text=\r\n\ Write\ a\ description\ of\ class\ Player\ here.\r\n\ \r\n\ @author\ (your\ name)\ \r\n\ @version\ (a\ version\ number\ or\ a\ date)\r\n
 comment1.params=
 comment1.target=void\ act()
-comment1.text=\r\n\ Act\ -\ do\ whatever\ the\ Player\ wants\ to\ do.\ This\ method\ is\ called\ whenever\r\n\ the\ 'Act'\ or\ 'Run'\ button\ gets\ pressed\ in\ the\ environment.\r\n
+comment10.params=
+comment10.target=void\ checkPickup()
+comment11.params=
+comment11.target=void\ powerQ()
 comment2.params=
 comment2.target=void\ checkInput()
 comment3.params=
@@ -20,4 +22,4 @@ comment8.params=
 comment8.target=void\ jump()
 comment9.params=
 comment9.target=void\ fall()
-numComments=10
+numComments=12
