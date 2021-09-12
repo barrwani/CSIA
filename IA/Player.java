@@ -4,7 +4,7 @@ public class Player extends Actor
 {
     private boolean jumping;
     private int jumpHeight = 15;
-    private int speed = 5;
+    private int speed = 7;
     private int accel = 1;
     private int velocity = 0;
     private boolean airjump = false;
@@ -32,6 +32,9 @@ public class Player extends Actor
         }
         if(Greenfoot.isKeyDown("space") && !jumping){
             jump();
+        }
+        if(Greenfoot.isKeyDown("e")){
+            powerQ();
         }
     }
     public void Right()
@@ -99,12 +102,26 @@ public class Player extends Actor
     public void checkPickup()
     {
         if (isTouching(AirTank.class)){
-            airjump = true;
+            if(!PlayerQ.isFull())PlayerQ.q(1);
             removeTouching(AirTank.class);
+        }
+        else if(isTouching(Food.class)){
+            if(!PlayerQ.isFull())PlayerQ.q(2);
+            removeTouching(Food.class);
         }
     }
     public void powerQ()
     {
-        //
+        if(!PlayerQ.isEmpty()){
+            switch (PlayerQ.arr[PlayerQ.start]){
+                case 1:
+                    airjump = true;
+                    PlayerQ.dq();
+                    break;
+                case 2:
+                    PlayerQ.dq();
+                    break;
+            }
+        }
     }
 }

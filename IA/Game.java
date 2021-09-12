@@ -12,5 +12,7 @@ public class Game extends World
         this.addObject(plat, 100, 400);
         AirTank tank = new AirTank();
         this.addObject(tank, 300, 200);
+        Food food = new Food();
+        this.addObject(food, 200,200);
     }
 }
