@@ -105,7 +105,7 @@ public class Player extends Actor
             if(!PlayerQ.isFull())PlayerQ.q(1);
             removeTouching(AirTank.class);
         }
-        else if(isTouching(Food.class)){
+        if(isTouching(Food.class)){
             if(!PlayerQ.isFull())PlayerQ.q(2);
             removeTouching(Food.class);
         }

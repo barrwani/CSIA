@@ -14,5 +14,7 @@ public class Game extends World
         this.addObject(tank, 300, 200);
         Food food = new Food();
         this.addObject(food, 200,200);
+        Food food2 = new Food();
+        this.addObject(food2,400, 400);
     }
 }

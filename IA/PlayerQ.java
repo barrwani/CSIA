@@ -5,6 +5,14 @@ public class PlayerQ extends Player
     public static int end = 0;
     public static int length = 0;
     public static int[] arr = new int[10];
+    public void act(){
+        if(start > 9){
+            start = 0;
+        }
+        if(end > 9){
+            end = 0;
+        }
+    }
     public static void q(int i){
         arr[end] = i;
         end++;
