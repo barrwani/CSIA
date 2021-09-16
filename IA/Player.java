@@ -6,16 +6,22 @@ public class Player extends Actor
     private int jumpHeight = 15;
     private int speed = 7;
     private int accel = 1;
+    private boolean pressed = false;
     private int velocity = 0;
     private boolean airjump = false;
     private int gravity = 5;
     public int score = 0;
-    public static boolean alive = true;
+    public int start = 0;
+    public int end = 0;
+    public int length = 0;
+    public int[] arr = new int[10];
+    public boolean alive = true;
     public int direction = 1;
 
     public void act()
     {
         //Player Jump + Gravity provided by danpost
+        
         checkInput();
         checkFall();
         checkPickup();
@@ -33,8 +39,12 @@ public class Player extends Actor
         if(Greenfoot.isKeyDown("space") && !jumping){
             jump();
         }
-        if(Greenfoot.isKeyDown("e")){
+        if(Greenfoot.isKeyDown("e") && !pressed){
+            pressed = true;
             powerQ();
+        }
+        if (!Greenfoot.isKeyDown("e") && pressed){
+            pressed = false;
         }
     }
     public void Right()
@@ -102,26 +112,52 @@ public class Player extends Actor
     public void checkPickup()
     {
         if (isTouching(AirTank.class)){
-            if(!PlayerQ.isFull())PlayerQ.q(1);
+            if(!isFull())q(1);
             removeTouching(AirTank.class);
         }
         if(isTouching(Food.class)){
-            if(!PlayerQ.isFull())PlayerQ.q(2);
+            if(!isFull())q(2);
             removeTouching(Food.class);
         }
     }
     public void powerQ()
     {
-        if(!PlayerQ.isEmpty()){
-            switch (PlayerQ.arr[PlayerQ.start]){
+        if(!isEmpty()){
+            switch (arr[start]){
                 case 1:
                     airjump = true;
-                    PlayerQ.dq();
+                    dq();
                     break;
                 case 2:
-                    PlayerQ.dq();
+                    dq();
                     break;
             }
+        }
+    }
+      public void q(int i){
+        arr[end] = i;
+        end++;
+        length++;
+    }
+    public void dq(){
+        arr[start] = 0;
+        length--;
+        start++;
+    }
+    public boolean isEmpty() {
+        if(start == end && length == 0) {
+            return true;
+        }
+        else {
+            return false;
+        }
+    }
+    public boolean isFull() {
+        if(start == end && length != 0) {
+            return true;
+        }
+        else {
+            return false;
         }
     }
 }

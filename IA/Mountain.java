@@ -1,19 +1,26 @@
 import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 
-/**
- * Write a description of class Mountain here.
- * 
- * @author (your name) 
- * @version (a version number or a date)
- */
+
 public class Mountain extends Actor
 {
-    /**
-     * Act - do whatever the Mountain wants to do. This method is called whenever
-     * the 'Act' or 'Run' button gets pressed in the environment.
-     */
+    private int height = 0;
+    private boolean up = true;
+    private int amplitude = 10;
+    private int period = 15;
     public void act()
     {
-        //
+        if(height < period && up){
+            setLocation(getX(), getY()-amplitude);
+            up = true;
+            height++;
+        }
+        if (height == (period-1))up = false;
+        if (height < period && !up){
+            setLocation(getX(), getY()+amplitude);
+            up = false;
+            height--;
+        }
+        if (height== -period) up = true;
+        
     }
 }
