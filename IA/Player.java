@@ -17,7 +17,7 @@ public class Player extends Actor
     public int[] arr = new int[10];
     public boolean alive = true;
     public int direction = 1;
-
+    //testcommit
     public void act()
     {
         //Player Jump + Gravity provided by danpost
