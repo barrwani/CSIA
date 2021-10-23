@@ -1,8 +1,8 @@
 import greenfoot.*; 
 
-
 public class Game extends World
 {
+    private int x = 0;
     public Game()
     {   
         super(900, 600, 1); 
@@ -18,5 +18,7 @@ public class Game extends World
         this.addObject(food2,400, 400);
         Mountain mtn = new Mountain();
         this.addObject(mtn, 500, 500);
+        
+
     }
 }
