@@ -9,18 +9,25 @@ public class Mountain extends Actor
     private int period = 15;
     public void act()
     {
+        MountWall mtwall = new MountWall();
+        getWorld().addObject(mtwall, getX(), getY());
+        
         if(height < period && up){
             setLocation(getX(), getY()-amplitude);
             up = true;
             height++;
         }
-        if (height == (period-1))up = false;
+        if (height == (period-1)){
+            up = false;
+            Platform plt = new Platform();
+            getWorld().addObject(plt,getX(), getY());
+        }
         if (height < period && !up){
             setLocation(getX(), getY()+amplitude);
             up = false;
             height--;
         }
-        if (height== -period) up = true;
+        if (height== -period)up = true;
         
     }
 }

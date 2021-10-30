@@ -8,6 +8,6 @@ public class Platform extends Mountain
      */
     public void act()
     {
-        ///
+        move(-4);
     }
 }

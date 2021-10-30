@@ -4,7 +4,7 @@ public class Player extends Actor
 {
     private boolean jumping;
     private int jumpHeight = 15;
-    private int speed = 7;
+    private int speed = 4;
     private int accel = 1;
     private boolean pressed = false;
     private int velocity = 0;
@@ -20,8 +20,7 @@ public class Player extends Actor
     //testcommit
     public void act()
     {
-        //Player Jump + Gravity provided by danpost
-        
+        //Basic Player Jump + Gravity provided by danpost
         checkInput();
         checkFall();
         checkPickup();

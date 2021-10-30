@@ -1,13 +1,13 @@
 import greenfoot.*;
 
-public class MountWall extends Mountain
+public class Plat2 extends Platform
 {
     /**
-     * Act - do whatever the MountWall wants to do. This method is called whenever
+     * Act - do whatever the CopyOfPlatform wants to do. This method is called whenever
      * the 'Act' or 'Run' button gets pressed in the environment.
      */
     public void act()
     {
-        move(-4);
+        ///v
     }
 }
