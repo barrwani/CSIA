@@ -17,13 +17,17 @@ public class Player extends Actor
     public int[] arr = new int[10];
     public boolean alive = true;
     public int direction = 1;
-    //testcommit
+
     public void act()
     {
         //Basic Player Jump + Gravity provided by danpost
-        checkInput();
+        if(alive){
+            checkInput();
+        }
+  
         checkFall();
         checkPickup();
+        checkDeath();
     }
     public void checkInput()
     {
@@ -157,6 +161,11 @@ public class Player extends Actor
         }
         else {
             return false;
+        }
+    }
+    public void checkDeath(){
+        if(isTouching(MountWall.class)){
+            alive = false;
         }
     }
 }

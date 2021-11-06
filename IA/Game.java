@@ -9,7 +9,7 @@ public class Game extends World
         Player p1 = new Player();
         this.addObject(p1, 100, 300);
         Plat2 plat = new Plat2();
-        this.addObject(plat,100,400);
+        this.addObject(plat,100,340);
         Mountain mtn = new Mountain();
         this.addObject(mtn, 900, 500);
         ClearWall clr = new ClearWall();

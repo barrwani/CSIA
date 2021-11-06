@@ -1,6 +1,6 @@
 import greenfoot.*;
 
-public class MountWall extends Mountain
+public class MountWall extends Platform
 {
     /**
      * Act - do whatever the MountWall wants to do. This method is called whenever
