@@ -168,7 +168,7 @@ public class Player extends Actor
         }
     }
     public void checkDeath(){
-        if(isTouching(MountWall.class)){
+        if(isTouching(MountWall.class) || isTouching(ClearFloor.class)){
             ((Game)getWorld()).GameOver();
             alive = false;
         }

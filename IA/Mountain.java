@@ -1,5 +1,4 @@
-import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
-
+import greenfoot.*; 
 
 public class Mountain extends Actor
 {
@@ -15,11 +14,11 @@ public class Mountain extends Actor
         MountWall mtwall = new MountWall();
         getWorld().addObject(mtwall, getX(), getY());
         
-        if(((Game)getWorld()).points % 10 ==0 && ((Game)getWorld()).points != 0 && ! spawned){
-            ((Game)getWorld()).spawnPickups(currentMAX-100);
+        if(((Game)getWorld()).points % 5 ==0 && ((Game)getWorld()).points != 0 && ! spawned){
+            ((Game)getWorld()).spawnPickups(currentMAX-50);
             spawned = true;
         }
-        if(((Game)getWorld()).points % 10 != 0){
+        if(((Game)getWorld()).points % 5 != 0){
             spawned = false;
         }
         

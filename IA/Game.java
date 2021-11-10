@@ -11,14 +11,15 @@ public class Game extends World
     {   
         super(900, 600, 1); 
         Player p1 = new Player();
-        this.addObject(p1, 100, 300);
+        addObject(p1, 100, 300);
         Plat2 plat = new Plat2();
-        this.addObject(plat,100,340);
+        addObject(plat,100,340);
         Mountain mtn = new Mountain();
-        this.addObject(mtn, 900, 500);
+        addObject(mtn, 900, 500);
         ClearWall clr = new ClearWall();
-        this.addObject(clr,0,300);
-
+        addObject(clr,0,300);
+        ClearFloor cflr = new ClearFloor();
+        addObject(cflr,450, 590);
     }
     
     public void act(){
@@ -32,17 +33,16 @@ public class Game extends World
         int balloonposX = rand.nextInt(800) + 100;
         int balloonposY = rand.nextInt(300);
         AirTank bal = new AirTank();
-        this.addObject(bal, balloonposX, balloonposY);
+        addObject(bal, balloonposX, balloonposY);
         
         int foodposX = rand.nextInt(800) + 100;
         int foodposY = rand.nextInt(300);
         Food food = new Food();
-        this.addObject(food, foodposX, foodposY);
+        addObject(food, foodposX, foodposY);
         
     }
     
     public void GameOver(){
-
         EndScreen w = new EndScreen();
         Greenfoot.setWorld(w);
     }
