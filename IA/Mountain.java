@@ -4,16 +4,24 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 public class Mountain extends Actor
 {
     private boolean up = true;
+    private boolean spawned = false;
     private boolean reduceMount = false;
     private int heightMIN = 590;
     private int currentMAX = 300;
     private int heightMAX = 200;
     private int steepness = 20;
-    public static int points = 0;
     public void act()
     {
         MountWall mtwall = new MountWall();
         getWorld().addObject(mtwall, getX(), getY());
+        
+        if(((Game)getWorld()).points % 10 ==0 && ((Game)getWorld()).points != 0 && ! spawned){
+            ((Game)getWorld()).spawnPickups(currentMAX-100);
+            spawned = true;
+        }
+        if(((Game)getWorld()).points % 10 != 0){
+            spawned = false;
+        }
         
         if(up && getY() > currentMAX){
             setLocation(getX(),getY()-10);
@@ -37,9 +45,9 @@ public class Mountain extends Actor
         
         if(getY() == currentMAX){
             up = false;
-            points++;
+            ((Game)getWorld()).points++;
             Platform plt = new Platform();
-            getWorld().addObject(plt,getX(), getY()-10);
+            getWorld().addObject(plt,getX(), getY()-15);
         }
     }
 }

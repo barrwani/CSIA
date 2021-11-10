@@ -21,6 +21,7 @@ public class Player extends Actor
     public void act()
     {
         //Basic Player Jump + Gravity provided by danpost
+        
         if(alive){
             checkInput();
         }
@@ -28,6 +29,7 @@ public class Player extends Actor
         checkFall();
         checkPickup();
         checkDeath();
+        
     }
     public void checkInput()
     {
@@ -98,6 +100,7 @@ public class Player extends Actor
         if(!airjump)velocity = velocity - jumpHeight;
         else{
           velocity = velocity - 20;
+          speed = 4;
           airjump = false;
         }
         jumping = true;
@@ -132,6 +135,7 @@ public class Player extends Actor
                     dq();
                     break;
                 case 2:
+                    speed = 8;
                     dq();
                     break;
             }
@@ -165,6 +169,7 @@ public class Player extends Actor
     }
     public void checkDeath(){
         if(isTouching(MountWall.class)){
+            ((Game)getWorld()).GameOver();
             alive = false;
         }
     }
