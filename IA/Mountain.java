@@ -9,6 +9,8 @@ public class Mountain extends Actor
     private int currentMAX = 300;
     private int heightMAX = 200;
     private int steepness = 20;
+    private int sidedepth = 10;
+    public int speed = -4;
     public void act()
     {
         MountWall mtwall = new MountWall();
@@ -18,17 +20,13 @@ public class Mountain extends Actor
             ((Game)getWorld()).spawnPickups(currentMAX-50);
             spawned = true;
         }
-        if(((Game)getWorld()).points % 5 != 0){
-            spawned = false;
-        }
+        if(((Game)getWorld()).points % 5 != 0)spawned = false;
         
-        if(up && getY() > currentMAX){
-            setLocation(getX(),getY()-10);
-        }
+        if(((Game)getWorld()).points % 10 != 0)speed -=1;
         
-        if(!up && getY() < heightMIN){
-            setLocation(getX(),getY()+10);
-        }
+        if(up && getY() > currentMAX)setLocation(getX(),getY()-sidedepth);
+        
+        if(!up && getY() < heightMIN)setLocation(getX(),getY()+sidedepth);
         
         if(!up && getY() == heightMIN){
             

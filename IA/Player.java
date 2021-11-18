@@ -135,7 +135,7 @@ public class Player extends Actor
                     dq();
                     break;
                 case 2:
-                    speed = 8;
+                   ((Game)getWorld()).points++;
                     dq();
                     break;
             }

@@ -1,6 +1,6 @@
 import greenfoot.*;
 
-public class Plat2 extends Platform
+public class SpawnPlat extends Platform
 {
 
     int jumpsLeft = 0;

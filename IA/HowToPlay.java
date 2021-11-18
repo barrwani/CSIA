@@ -9,6 +9,6 @@ public class HowToPlay extends World
         Tutorial tut = new Tutorial();
         addObject(tut,450,300);
         ExitButton exit = new ExitButton();
-        addObject(exit, 450, 500);
+        addObject(exit, 450, 550);
     }
 }

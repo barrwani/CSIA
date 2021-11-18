@@ -8,6 +8,6 @@ public class MountWall extends Platform
      */
     public void act()
     {
-        move(-4);
+        move(speed);
     }
 }
