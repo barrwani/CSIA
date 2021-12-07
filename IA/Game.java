@@ -5,7 +5,6 @@ import java.util.Random;
 
 public class Game extends World
 {
-    private int x = 0;
     private double meters = 0;
     public int points = 0;
     public int highscore = 0;

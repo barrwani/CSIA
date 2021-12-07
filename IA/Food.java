@@ -1,5 +1,5 @@
 import greenfoot.*; 
-public class Food extends Actor
+public class Food extends Pickup
 {
     /**
      * Act - do whatever the Food wants to do. This method is called whenever

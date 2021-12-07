@@ -3,7 +3,7 @@ import greenfoot.*;
 public class SpawnPlat extends Platform
 {
 
-    int jumpsLeft = 0;
+    private int jumpsLeft = 0;
     public void act()
     {
         // Greenfoot doesn't have perfect collisions
